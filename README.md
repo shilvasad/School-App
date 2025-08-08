@@ -5,4 +5,6 @@ This will be a school app, I will create for the school I am working now.
 
 `Note: I will use AI only for learning purpose, and will not include any modification using AI in this codebase.`
 
-* All the process will be manually written and code autocompletation will be turned off. 
+* All the process will be manually written and code autocompletation will be turned off.
+
+* PROGRESS.md track all the changes I made, along with the git-commit.
