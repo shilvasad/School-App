@@ -2,6 +2,8 @@ import dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
 import connectDB from "./config/db.js"
+import scheduleRoutes from './routes/scheduleRoutes.js'
+import {notFound, errorHandler} from './middleware/errorHandlerMiddlerware.js'
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT;
@@ -14,6 +16,8 @@ app.use(cors());
 // Enable JSON body parsing.
 app.use(express.json());
 
+app.use('/api/schedule', scheduleRoutes)
+
 // Test route.
 app.get("/", (req, res) => {
   res.send("API is running...");
@@ -24,6 +28,10 @@ app.get("/", (req, res) => {
 
 connectDB()
 
+
+
+app.use(notFound)
+app.use(errorHandler)
 // Starting server
 
 app.listen(PORT, () => {
@@ -31,3 +39,5 @@ app.listen(PORT, () => {
     Server is running on PORT ${PORT}.
     Access the server on ${protocol}://${host}:${PORT}`);
 });
+
+
