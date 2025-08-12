@@ -18,6 +18,11 @@ import mongoose from "mongoose";
     groupName: {
         type: String, 
         required: false, 
+    },
+    createdBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true, 
+        ref: 'User'
     }
  })
  

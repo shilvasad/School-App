@@ -3,8 +3,10 @@ import express from "express";
 import cors from "cors";
 import connectDB from "./config/db.js"
 import scheduleRoutes from './routes/scheduleRoutes.js'
-import userRouter from './routes/userRoutes.js'
-import subjectRouter from './routes/subjectRoutes.js'
+import userRoutes from './routes/userRoutes.js'
+import subjectRoutes from './routes/subjectRoutes.js'
+import classroomRoutes from './routes/classroomRoutes.js'
+import academicClassRoutes from './routes/academicClassRoutes.js'
 import {notFound, errorHandler} from './middleware/errorHandlerMiddlerware.js'
 dotenv.config();
 const app = express();
@@ -19,8 +21,11 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/api/schedule', scheduleRoutes)
-app.use('/api/users', userRouter)
-app.use('/api/subjects', subjectRouter)
+app.use('/api/users', userRoutes)
+app.use('/api/subjects', subjectRoutes)
+app.use('/api/classrooms', classroomRoutes)
+app.use('/api/academicClassrooms', academicClassRoutes)
+
 
 // Test route.
 app.get("/", (req, res) => {
