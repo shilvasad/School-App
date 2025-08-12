@@ -1,16 +1,7 @@
 import asyncHandler from "express-async-handler";
-import User from "../models/user.model.js";
-import jwt from 'jsonwebtoken'
+import User from "../../models/user.model.js";
 import bcrypt from "bcryptjs";
-
-
-
-// Helper function to generate token 
-const generateToken = (id)=>{
-  return jwt.sign({id}, process.env.JWT_SECRET, {
-    expiresIn: '30d'
-  })
-}
+import generateToken from '../../utils/generateToken.js'
 
 /* 
 

@@ -1,12 +1,12 @@
 import asyncHandler from "express-async-handler";
-import ScheduleEntry from "../models/scheduleEntry.model.js";
-import DailyModification from "../models/dailyModification.model.js";
+import ScheduleEntry from "../../models/scheduleEntry.model.js";
+import DailyModification from "../../models/dailyModification.model.js";
 // Other imports
 import "../models/user.model.js";
-import "../models/classroom.model.js";
-import "../models/academicClass.model.js";
+import "../../models/classroom.model.js";
+import "../../models/academicClass.model.js";
 import "../models/subject.model.js";
-import "../models/classPeriod.model.js";
+import "../../models/classPeriod.model.js";
 
 // @desc Get the schedule for current day.
 // @route GET /api/schedule/today
