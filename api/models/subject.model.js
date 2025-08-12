@@ -4,6 +4,11 @@ const subjectSchema = new mongoose.Schema({
         type: String, 
         required: true, 
         unique: true, 
+    },
+    createdBy:{
+        type: mongoose.Schema.Types.ObjectId,
+        required: true, 
+        ref: 'User'
     }
 })
 const Subject = mongoose.model('Subject', subjectSchema)

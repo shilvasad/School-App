@@ -4,6 +4,7 @@ import cors from "cors";
 import connectDB from "./config/db.js"
 import scheduleRoutes from './routes/scheduleRoutes.js'
 import userRouter from './routes/userRoutes.js'
+import subjectRouter from './routes/subjectRoutes.js'
 import {notFound, errorHandler} from './middleware/errorHandlerMiddlerware.js'
 dotenv.config();
 const app = express();
@@ -19,6 +20,7 @@ app.use(express.json());
 
 app.use('/api/schedule', scheduleRoutes)
 app.use('/api/users', userRouter)
+app.use('/api/subjects', subjectRouter)
 
 // Test route.
 app.get("/", (req, res) => {
