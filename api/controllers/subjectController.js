@@ -7,7 +7,8 @@ const subject = new Subject({
     name: name,
     createdBy: req.user._id,
 })
-const createdSubject = await subject.save()
+let createdSubject = await subject.save()
+createdSubject = await createdSubject.populate('createdBy', 'name')
 res.status(201).json(createdSubject)
 })
 
