@@ -6,7 +6,7 @@ import mainAPIRouter from "./routes/index.js";
 import {
   notFound,
   errorHandler,
-} from "./middleware/errorHandlerMiddlerware.js";
+} from "./common/middleware/errorHandler.middleware.js";
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT;

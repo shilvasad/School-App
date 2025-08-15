@@ -1,6 +1,6 @@
 import asyncHandler from "express-async-handler";
-import Classroom from "../models/classroom.model.js";
-import AcademicClass from '../models/academicClass.model.js'
+import Classroom from "./classroom.model.js";
+import AcademicClass from './academicClass.model.js'
 
 const createClassroom = asyncHandler(async (req, res) => {
   const { name, academicClasses } = req.body;

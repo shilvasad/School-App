@@ -1,5 +1,5 @@
 import express from 'express'
-import {createAcademicClass, getAcademicClasses} from '../controllers/academicClassController.js'
+import {createAcademicClass, getAcademicClasses} from './academicClass.controller.js'
 import {protect, authorize} from '../../common/middleware/auth.middleware.js'
 const router = express.Router()
 

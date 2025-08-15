@@ -1,5 +1,5 @@
 import asyncHandler from 'express-async-handler'
-import Subject from '../models/subject.model.js'
+import Subject from './subject.model.js'
 
 const createSubject =  asyncHandler(async(req , res )=>{
 const {name} = req.body

@@ -1,6 +1,6 @@
 import express from 'express'
-import {createClassroom} from '../controllers/classroomController'
-import {protect, authorize} from '../middleware/authMiddleware'
+import {createClassroom} from './classroom.controller.js'
+import {protect, authorize} from '../../common/middleware/auth.middleware.js'
 const router = express.Router()
 
 router.post('/', protect, authorize('admin'), createClassroom )

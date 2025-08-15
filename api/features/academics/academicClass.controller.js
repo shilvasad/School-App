@@ -1,5 +1,5 @@
 import asyncHandler from "express-async-handler";
-import AcademicClass from "../models/academicClass.model.js";
+import AcademicClass from "./academicClass.model.js";
 
 // New Academic Class 
 const createAcademicClass = asyncHandler(async (req, res) => {

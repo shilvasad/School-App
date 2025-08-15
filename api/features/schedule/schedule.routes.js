@@ -1,6 +1,6 @@
 import express from 'express'
-import {getScheduleForToday} from '../controllers/scheduleController.js'
-import { protect } from '../../middleware/authMiddleware.js'
+import {getScheduleForToday} from './schedule.controller.js'
+import {protect} from '../../common/middleware/auth.middleware.js'
 
 const router = express.Router()
 
