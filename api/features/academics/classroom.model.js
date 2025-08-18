@@ -16,6 +16,11 @@ const classroomSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         required: true, 
         ref: 'User'
+    },
+    updatedBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: false, 
+        ref: 'User'
     }
 })
 
