@@ -13,7 +13,7 @@ router.use('/classrooms', ClassroomRouter)
 router.use('/classes', AcademicClassRouter)
 router.use('/users', UserRouter)
 router.use('/subjects', SubjectRouter)
-router.use('/schedules', ScheduleRouter)
+router.use('/schedule', ScheduleRouter)
 
 
 
