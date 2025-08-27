@@ -11,6 +11,11 @@ import generateToken from '../../utils/generateToken.js'
 
 */
 
+/* 
+  @desc   Users profiles. 
+
+*/
+
 const registerUser = asyncHandler(async (req, res) => {
   const { name, phone, password, role } = req.body;
   // Check users with duplicate numbers.
@@ -78,5 +83,62 @@ const loginUser = asyncHandler(async(req, res)=>{
 })
 
 
+/* 
+  @desc   Get user profile
+  @route  GET /api/users/profile
+  @access Private
+*/ 
 
-export { registerUser, loginUser };
+const getUserProfile = asyncHandler(async(req, res)=>{
+  const user = req.user
+  if(user){
+    res.json({
+      _id : user._id,
+      name: user.name,
+      phone: user.phone,
+      role: user.role 
+    })
+  }
+  else{
+    res.status(404)
+    throw new Error('User not found')
+  }
+})
+
+
+
+/*
+  @desc   Update user profile
+  @route  PUT /api/users/profile
+  @access Private
+*/
+
+const updateUserProfile = asyncHandler(async(req, res)=>{
+  const user = await User.findById(req.user._id)
+  if(user){
+    // If new name provided
+    user.name = req.body.name || user.name
+
+    // If new password is provided, hashed and update
+    if(req.body.password){
+      const salt = await bcrypt.genSalt(10)
+      user.password = await bcrypt.hash(req.body.password, salt)
+    }
+    const updatedUser = await user.save()
+    res.json({
+      _id: updatedUser._id,
+      name: updatedUser.name,
+      phone: updatedUser.phone,
+      role: updatedUser.role,
+      token: generateToken(updatedUser._id)
+    })
+  }
+  else{
+    res.status(404)
+    throw new Error('User not found')
+  }
+
+})
+
+
+export { registerUser, loginUser, getUserProfile , updateUserProfile};

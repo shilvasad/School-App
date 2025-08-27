@@ -3,10 +3,10 @@ import ScheduleEntry from "./scheduleEntry.model.js";
 import DailyModification from "./dailyModification.model.js";
 // Other imports
 import "../users/user.model.js";
-import "../academics/classroom.model.js";
-import "../academics/academicClass.model.js";
+import "../academics/classrooms/classroom.model.js";
+import "../academics/academicClasses/academicClass.model.js";
 import "../subjects/subject.model.js";
-import "../academics/classPeriod.model.js";
+import "../academics/classPeriods/classPeriod.model.js";
 
 
 /*  @desc Create a permanent schedule entry
